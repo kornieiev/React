@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "Lola",
+    "email": "lola@gmail.com",
+    "age": 24,
+    "avatar": "https://todler.pl/28584-large_default/p4416-malpka-lola-w-sukience-32-cm-asi-0606240.webp"
+  },
+  {
+    "id": "2",
+    "name": "Max",
+    "email": "max@gmail.com",
+    "age": 30,
+    "avatar": "https://fastly.picsum.photos/id/335/200/300.jpg?hmac=G81PbTg8uAk00mCq0eZdiTJwpa_-_FvFZJVhEGcouXQ"
+  },
+  {
+    "id": "3",
+    "name": "Sophia",
+    "email": "sophia@gmail.com",
+    "age": 27,
+    "avatar": "https://fastly.picsum.photos/id/703/200/300.jpg?hmac=NKQDtZdJOFjdXxez-vNSj9VLDpR9jIewJzUhoOJoZVI"
+  },
+  {
+    "id": "4",
+    "name": "Oliver",
+    "email": "oliver@gmail.com",
+    "age": 22,
+    "avatar": "https://fastly.picsum.photos/id/1080/200/300.jpg?hmac=3jCG4X8ni9cpiEppj6KVvqhpJ_owIFtDQOABJmhG1I0"
+  },
+  {
+    "id": "5",
+    "name": "Emma",
+    "email": "emma@gmail.com",
+    "age": 29,
+    "avatar": "https://fastly.picsum.photos/id/244/200/300.jpg?hmac=wik1JUmLjSI1ujhC7YXckSJhpxTId-Ul5HF5mcALqC8"
+  }
+]
