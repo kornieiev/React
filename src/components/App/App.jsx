@@ -1,6 +1,6 @@
 import PilotList from '../PilotList/PilotList';
 import { Profile } from '../Profile/Profile';
-import users from './users.json';
+import users from '../users.json';
 
 import { FaBeer } from 'react-icons/fa';
 
