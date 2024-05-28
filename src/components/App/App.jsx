@@ -7,6 +7,8 @@ import { FaBeer } from 'react-icons/fa';
 // import GlobalStyle from './GlobalStyles';
 import { Box } from './App.styled';
 import { GlobalStyle } from './GlobalStyles';
+import styled from 'styled-components';
+import Children from 'components/Children/Children';
 
 const user1 = {
   id: 1,
@@ -25,6 +27,10 @@ const user2 = {
   avatar:
     'https://fastly.picsum.photos/id/335/200/300.jpg?hmac=G81PbTg8uAk00mCq0eZdiTJwpa_-_FvFZJVhEGcouXQ',
 };
+
+const IconWrapperSpan = styled.span`
+  color: orange;
+`;
 
 export const App = () => {
   return (
@@ -47,7 +53,9 @@ export const App = () => {
 
       <h2>
         React Icons
-        <FaBeer size="40" />
+        <IconWrapperSpan>
+          <FaBeer size="40" />
+        </IconWrapperSpan>
       </h2>
 
       <hr />
@@ -57,6 +65,12 @@ export const App = () => {
       <Box $variant="primary" />
       <Box $variant="secondary" />
       <Box />
+
+      <hr />
+      <hr />
+      <h2>Children:</h2>
+
+      <Children>SomeTexT</Children>
 
       <GlobalStyle />
     </>
