@@ -9,6 +9,7 @@ import { Box } from './App.styled';
 import { GlobalStyle } from './GlobalStyles';
 import styled from 'styled-components';
 import Children from 'components/Children/Children';
+import Counter from 'components/M2_Evt_State_Form/Counter/Counter';
 
 const user1 = {
   id: 1,
@@ -73,6 +74,22 @@ export const App = () => {
       <Children>SomeTexT</Children>
 
       <GlobalStyle />
+
+      {/*  */}
+
+      {/* <button
+        style={{ margin: '10px' }}
+        onClick={evt => {
+          console.log(evt);
+        }}
+      >
+        Press me!
+      </button> */}
+
+      {/*  */}
+
+      {/*  */}
+      <Counter />
     </>
   );
 };

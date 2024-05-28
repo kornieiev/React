@@ -5,7 +5,7 @@ export const Box = styled.div`
   width: 150px;
   height: 150px;
   background-color: ${props => {
-    console.log('props', props.$variant);
+    // console.log('props', props.$variant);
     switch (props.$variant) {
       case 'primary':
         return 'lightgreen';
