@@ -1,8 +1,12 @@
-import PilotList from '../PilotList/PilotList';
+import UsersList from '../UsersList/UsersList';
 import { Profile } from '../Profile/Profile';
 import users from '../users.json';
 
 import { FaBeer } from 'react-icons/fa';
+
+// import GlobalStyle from './GlobalStyles';
+import { Box } from './App.styled';
+import { GlobalStyle } from './GlobalStyles';
 
 const user1 = {
   id: 1,
@@ -26,7 +30,7 @@ export const App = () => {
   return (
     <>
       <h1>Top users</h1>
-      <PilotList users={users} />
+      <UsersList users={users} />
 
       <hr />
       <hr />
@@ -45,6 +49,16 @@ export const App = () => {
         React Icons
         <FaBeer size="40" />
       </h2>
+
+      <hr />
+      <hr />
+      <h2>styled-components:</h2>
+
+      <Box $variant="primary" />
+      <Box $variant="secondary" />
+      <Box />
+
+      <GlobalStyle />
     </>
   );
 };
