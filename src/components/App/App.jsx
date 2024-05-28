@@ -92,7 +92,7 @@ export const App = () => {
       <hr />
 
       {/*  */}
-      <Counter step={5} />
+      <Counter step={5} initialValue={0} />
     </>
   );
 };
