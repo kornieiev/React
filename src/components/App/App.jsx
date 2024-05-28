@@ -88,8 +88,11 @@ export const App = () => {
 
       {/*  */}
 
+      <hr />
+      <hr />
+
       {/*  */}
-      <Counter />
+      <Counter step={5} />
     </>
   );
 };
