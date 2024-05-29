@@ -14,6 +14,7 @@ import LoginFormControlled from 'components/M2_Class_Evt_State_Form/LoginFormCon
 import SignUpForm from 'components/M2_Class_Evt_State_Form/SignUpForm/SignUpForm';
 import ComplicatedForm from 'components/M2_Class_Evt_State_Form/ComplicatedForm/ComplicatedForm';
 import FormIdGeneration from 'components/M2_Class_Evt_State_Form/FormIdGeneration/FormIdGeneration';
+import CheckBox from 'components/M2_Class_Evt_State_Form/CheckBox/CheckBox';
 
 const user1 = {
   id: 1,
@@ -139,6 +140,17 @@ export const App = () => {
 
       {/* Генерація Id елементів форми - nanoid, htmlFor, id */}
       <FormIdGeneration />
+
+      <hr />
+      <hr />
+
+      {/* CheckBox */}
+      <CheckBox onSubmit={values => console.log(values)} />
+
+      <hr />
+      <hr />
+
+      {/* RadioButtons */}
     </>
   );
 };

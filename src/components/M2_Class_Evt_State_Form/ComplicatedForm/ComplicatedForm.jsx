@@ -42,7 +42,7 @@ export default class ComplicatedForm extends Component {
       <>
         <p>Складні форми. Форма реєстрації. ComplicatedForm !!!</p>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor={this.loginInputId}>
+          <label>
             Name
             <input
               type="text"
