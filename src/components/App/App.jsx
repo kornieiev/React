@@ -12,6 +12,8 @@ import Counter from 'components/M2_Class_Evt_State_Form/Counter/Counter';
 import LoginFormUncontrolled from 'components/M2_Class_Evt_State_Form/LoginFormUncontrolled/LoginFormUncontrolled';
 import LoginFormControlled from 'components/M2_Class_Evt_State_Form/LoginFormControlled/LoginFormControlled';
 import SignUpForm from 'components/M2_Class_Evt_State_Form/SignUpForm/SignUpForm';
+import ComplicatedForm from 'components/M2_Class_Evt_State_Form/ComplicatedForm/ComplicatedForm';
+import FormIdGeneration from 'components/M2_Class_Evt_State_Form/FormIdGeneration/FormIdGeneration';
 
 const user1 = {
   id: 1,
@@ -121,6 +123,22 @@ export const App = () => {
           console.log('🚀 ~ App - SignUpForm ~ values:', values)
         }
       />
+
+      <hr />
+      <hr />
+
+      {/* Складні форми. Форма реєстрації. ComplicatedForm !!! */}
+      <ComplicatedForm
+        onSubmit={values =>
+          console.log('🚀 ~ App - SignUpForm ~ values:', values)
+        }
+      />
+
+      <hr />
+      <hr />
+
+      {/* Генерація Id елементів форми - nanoid, htmlFor, id */}
+      <FormIdGeneration />
     </>
   );
 };
