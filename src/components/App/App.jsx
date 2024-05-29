@@ -9,6 +9,7 @@ import { GlobalStyle } from './GlobalStyles';
 import styled from 'styled-components';
 import Children from 'components/Children/Children';
 import Counter from 'components/M2_Evt_State_Form/Counter/Counter';
+import LoginFormUncontrolled from 'components/M2_Evt_State_Form/LoginFormUncontrolled/LoginFormUncontrolled';
 
 const user1 = {
   id: 1,
@@ -92,6 +93,19 @@ export const App = () => {
 
       {/*  */}
       <Counter step={3} initialValue={10} />
+
+      {/*  */}
+
+      <hr />
+      <hr />
+
+      {/*  */}
+
+      <LoginFormUncontrolled
+        onSubmit={values =>
+          console.log('🚀 ~ App - LoginFormUncontrolled ~ values:', values)
+        }
+      />
     </>
   );
 };
