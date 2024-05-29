@@ -4,7 +4,6 @@ import users from '../users.json';
 
 import { FaBeer } from 'react-icons/fa';
 
-// import GlobalStyle from './GlobalStyles';
 import { Box } from './App.styled';
 import { GlobalStyle } from './GlobalStyles';
 import styled from 'styled-components';
@@ -92,7 +91,7 @@ export const App = () => {
       <hr />
 
       {/*  */}
-      <Counter step={5} initialValue={0} />
+      <Counter step={3} initialValue={10} />
     </>
   );
 };
