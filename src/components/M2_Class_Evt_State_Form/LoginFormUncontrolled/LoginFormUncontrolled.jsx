@@ -13,11 +13,14 @@ export default class LoginFormUncontrolled extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" name="login" />
-        <input type="password" name="password" />
-        <button type="submit">Login</button>
-      </form>
+      <>
+        <p>Неконтрольовані елементи форми:</p>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" name="login" />
+          <input type="password" name="password" />
+          <button type="submit">Login</button>
+        </form>
+      </>
     );
   }
 }

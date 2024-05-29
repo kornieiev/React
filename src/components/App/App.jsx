@@ -8,8 +8,10 @@ import { Box } from './App.styled';
 import { GlobalStyle } from './GlobalStyles';
 import styled from 'styled-components';
 import Children from 'components/Children/Children';
-import Counter from 'components/M2_Evt_State_Form/Counter/Counter';
-import LoginFormUncontrolled from 'components/M2_Evt_State_Form/LoginFormUncontrolled/LoginFormUncontrolled';
+import Counter from 'components/M2_Class_Evt_State_Form/Counter/Counter';
+import LoginFormUncontrolled from 'components/M2_Class_Evt_State_Form/LoginFormUncontrolled/LoginFormUncontrolled';
+import LoginFormControlled from 'components/M2_Class_Evt_State_Form/LoginFormControlled/LoginFormControlled';
+import SignUpForm from 'components/M2_Class_Evt_State_Form/SignUpForm/SignUpForm';
 
 const user1 = {
   id: 1,
@@ -91,19 +93,32 @@ export const App = () => {
       <hr />
       <hr />
 
-      {/*  */}
+      {/* Стан + Підіймання стану */}
       <Counter step={3} initialValue={10} />
 
-      {/*  */}
-
       <hr />
       <hr />
 
-      {/*  */}
-
+      {/* Неконтрольовані елементи форми */}
       <LoginFormUncontrolled
         onSubmit={values =>
           console.log('🚀 ~ App - LoginFormUncontrolled ~ values:', values)
+        }
+      />
+
+      <hr />
+      <hr />
+
+      {/* Контрольовані елементи форми */}
+      <LoginFormControlled />
+
+      <hr />
+      <hr />
+
+      {/* Складні форми. Форма реєстрації */}
+      <SignUpForm
+        onSubmit={values =>
+          console.log('🚀 ~ App - SignUpForm ~ values:', values)
         }
       />
     </>
