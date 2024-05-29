@@ -15,6 +15,7 @@ import SignUpForm from 'components/M2_Class_Evt_State_Form/SignUpForm/SignUpForm
 import ComplicatedForm from 'components/M2_Class_Evt_State_Form/ComplicatedForm/ComplicatedForm';
 import FormIdGeneration from 'components/M2_Class_Evt_State_Form/FormIdGeneration/FormIdGeneration';
 import CheckBox from 'components/M2_Class_Evt_State_Form/CheckBox/CheckBox';
+import RadioButtons from 'components/M2_Class_Evt_State_Form/RadioButtons/RadioButtons';
 
 const user1 = {
   id: 1,
@@ -151,6 +152,7 @@ export const App = () => {
       <hr />
 
       {/* RadioButtons */}
+      <RadioButtons onSubmit={values => console.log(values)} />
     </>
   );
 };

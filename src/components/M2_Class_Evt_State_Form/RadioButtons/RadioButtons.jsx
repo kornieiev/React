@@ -1,15 +1,20 @@
 // https://www.edu.goit.global/uk/learn/10961022/31183/31219/training?blockId=20318876
-
 import React, { Component } from 'react';
+
+const Gender = {
+  MALE: 'male',
+  FEMALE: 'female',
+};
 
 const INITIAL_STATE = {
   login: '',
   email: '',
   password: '',
   agreed: false,
+  gender: null,
 };
 
-export default class CheckBox extends Component {
+export default class RadioButtons extends Component {
   state = {
     ...INITIAL_STATE,
   };
@@ -41,7 +46,7 @@ export default class CheckBox extends Component {
   };
 
   render() {
-    const { login, email, password, agreed } = this.state;
+    const { login, email, password, agreed, gender } = this.state;
 
     return (
       <>
@@ -83,6 +88,30 @@ export default class CheckBox extends Component {
                 type="checkbox"
                 name="agreed"
                 checked={agreed}
+                onChange={this.handleChange}
+              />
+            </label>
+          </section>
+
+          <section>
+            <h2>Choose your gender</h2>
+            <label>
+              Male
+              <input
+                type="radio"
+                checked={gender === Gender.MALE}
+                name="gender"
+                value={Gender.MALE}
+                onChange={this.handleChange}
+              />
+            </label>
+            <label>
+              Female
+              <input
+                type="radio"
+                checked={gender === Gender.FEMALE}
+                name="gender"
+                value={Gender.FEMALE}
                 onChange={this.handleChange}
               />
             </label>
