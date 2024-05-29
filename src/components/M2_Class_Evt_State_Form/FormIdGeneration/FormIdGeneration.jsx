@@ -8,15 +8,18 @@ export default class FormIdGeneration extends Component {
 
   render() {
     return (
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          console.log(e);
-        }}
-      >
-        <label htmlFor={this.loginInputId}>Login</label>
-        <input type="text" name="login" id={this.loginInputId} />
-      </form>
+      <>
+        <p>nanoid - FormIdGeneration:</p>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            console.log(e);
+          }}
+        >
+          <label htmlFor={this.loginInputId}>Login</label>
+          <input type="text" name="login" id={this.loginInputId} />
+        </form>
+      </>
     );
   }
 }

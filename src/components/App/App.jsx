@@ -16,6 +16,7 @@ import ComplicatedForm from 'components/M2_Class_Evt_State_Form/ComplicatedForm/
 import FormIdGeneration from 'components/M2_Class_Evt_State_Form/FormIdGeneration/FormIdGeneration';
 import CheckBox from 'components/M2_Class_Evt_State_Form/CheckBox/CheckBox';
 import RadioButtons from 'components/M2_Class_Evt_State_Form/RadioButtons/RadioButtons';
+import Select from 'components/M2_Class_Evt_State_Form/Select/Select';
 
 const user1 = {
   id: 1,
@@ -153,6 +154,12 @@ export const App = () => {
 
       {/* RadioButtons */}
       <RadioButtons onSubmit={values => console.log(values)} />
+
+      <hr />
+      <hr />
+
+      {/* Select */}
+      <Select onSubmit={values => console.log(values)} />
     </>
   );
 };

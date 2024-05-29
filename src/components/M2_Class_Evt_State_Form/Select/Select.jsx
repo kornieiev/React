@@ -5,24 +5,24 @@ const Gender = {
   MALE: 'male',
   FEMALE: 'female',
 };
-
 const INITIAL_STATE = {
   login: '',
   email: '',
   password: '',
   agreed: false,
   gender: null,
+  age: '',
 };
 
-export default class RadioButtons extends Component {
+export default class Select extends Component {
   state = {
     ...INITIAL_STATE,
   };
 
   handleChange = evt => {
-    // console.log('🚀 ~ CheckBox ~ name:', evt.target.name);
-    // console.log('🚀 ~ CheckBox ~ type:', evt.target.type);
-    // console.log('🚀 ~ CheckBox ~ value:', evt.target.value);
+    console.log('🚀 ~ CheckBox ~ name:', evt.target.name);
+    console.log('🚀 ~ CheckBox ~ type:', evt.target.type);
+    console.log('🚀 ~ CheckBox ~ value:', evt.target.value);
     // console.log('🚀 ~ CheckBox ~ checked:', evt.target.checked);
 
     const { name, value, type, checked } = evt.target;
@@ -46,11 +46,12 @@ export default class RadioButtons extends Component {
   };
 
   render() {
-    const { login, email, password, agreed, gender } = this.state;
+    const { login, email, password, agreed, gender, age } = this.state;
 
     return (
       <>
-        <p>Радіокнопки:</p>
+        <p>Select:</p>
+
         <form onSubmit={this.handleSubmit}>
           <section>
             <label>
@@ -115,6 +116,20 @@ export default class RadioButtons extends Component {
                 value={Gender.FEMALE}
                 onChange={this.handleChange}
               />
+            </label>
+          </section>
+
+          <section>
+            <label>
+              Choose your age
+              <select name="age" value={age} onChange={this.handleChange}>
+                <option value="" disabled>
+                  ...
+                </option>
+                <option value="18-25">18-25</option>
+                <option value="26-35">26-35</option>
+                <option value="36+">36+</option>
+              </select>
             </label>
           </section>
 
