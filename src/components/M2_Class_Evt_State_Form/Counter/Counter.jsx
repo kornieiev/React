@@ -36,7 +36,7 @@ export default class Counter extends Component {
 
     return (
       <div>
-        <p>CounterParent:</p>
+        <h3>Состояние + Подъем состояния. CounterParent:</h3>
 
         <span>{this.state.value}</span>
         <button type="button" onClick={this.handleIncrement}>
@@ -45,7 +45,9 @@ export default class Counter extends Component {
         <button type="button" onClick={this.handleDecrement}>
           Decrement by {step}
         </button>
-        <hr />
+        <br />
+        <br />
+
         <CounterChild
           onIncrementClick={this.handleIncrement}
           onDecrementClick={this.handleDecrement}

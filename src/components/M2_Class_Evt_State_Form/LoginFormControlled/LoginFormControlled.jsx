@@ -14,7 +14,7 @@ export default class LoginFormControlled extends Component {
     const { inputValue } = this.state;
     return (
       <>
-        <p>Контрольовані елементи форми:</p>
+        <h3>Контрольовані елементи форми:</h3>
         <input type="text" value={inputValue} onChange={this.handleChange} />
       </>
     );

@@ -50,7 +50,7 @@ export default class RadioButtons extends Component {
 
     return (
       <>
-        <p>Радіокнопки:</p>
+        <h3>Радіокнопки:</h3>
         <form onSubmit={this.handleSubmit}>
           <section>
             <label>
@@ -93,9 +93,10 @@ export default class RadioButtons extends Component {
               />
             </label>
           </section>
+          <br />
 
           <section>
-            <h2>Choose your gender</h2>
+            <h4>Choose your gender</h4>
             <label>
               Male
               <input

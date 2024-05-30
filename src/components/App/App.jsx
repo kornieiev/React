@@ -17,6 +17,7 @@ import FormIdGeneration from 'components/M2_Class_Evt_State_Form/FormIdGeneratio
 import CheckBox from 'components/M2_Class_Evt_State_Form/CheckBox/CheckBox';
 import RadioButtons from 'components/M2_Class_Evt_State_Form/RadioButtons/RadioButtons';
 import Select from 'components/M2_Class_Evt_State_Form/Select/Select';
+import IndexM02 from 'components/M2_Class_Evt_State_Form/Index_M_02';
 
 const user1 = {
   id: 1,
@@ -43,22 +44,27 @@ const IconWrapperSpan = styled.span`
 export const App = () => {
   return (
     <>
-      <h1>Top users</h1>
+      {/* Глобальные стили */}
+      <GlobalStyle />
+
+      {/* Рендер массива компонентов с данными из JSON с использованием map */}
       <UsersList users={users} />
 
       <hr />
       <hr />
 
-      <h2>
+      {/* Рендер одиночных компонентов с данными из JSON */}
+      <h3>
         Повторное использование компонента Profile с передачей пропса с данными
         по одному юзеру
-      </h2>
+      </h3>
       <Profile props={user1} />
       <Profile props={user2} />
 
       <hr />
       <hr />
 
+      {/* React Icons */}
       <h2>
         React Icons
         <IconWrapperSpan>
@@ -68,98 +74,46 @@ export const App = () => {
 
       <hr />
       <hr />
-      <h2>styled-components:</h2>
 
+      {/* Передача пропас признаком $ с использованием styled-components: */}
+      <h3>styled-components. Передача пропас признаком $:</h3>
       <Box $variant="primary" />
       <Box $variant="secondary" />
       <Box />
 
       <hr />
       <hr />
-      <h2>Children:</h2>
 
+      {/* Передача сhildren в компонент с использованием styled-components: */}
       <Children>SomeTexT</Children>
 
-      <GlobalStyle />
+      <hr />
+      <hr />
 
-      {/*  */}
-
-      {/* <button
+      {/* Кнопка с инлайн стилями и событием onClick */}
+      <h3>Кнопка с инлайн стилями и событием onClick</h3>
+      <button
         style={{ margin: '10px' }}
         onClick={evt => {
           console.log(evt);
         }}
       >
         Press me!
-      </button> */}
+      </button>
+
+      <hr />
+      <hr />
 
       {/*  */}
+      {/* M-02 Події та стан - класові компоненти. Передача пропсів дітям, підйом стейту батькам */}
+
+      {/* <IndexM02>
+        M-02 Події та стан - класові компоненти. Передача пропсів дітям, підйом
+        стейту батькам
+      </IndexM02> */}
 
       <hr />
       <hr />
-
-      {/* Стан + Підіймання стану */}
-      <Counter step={3} initialValue={10} />
-
-      <hr />
-      <hr />
-
-      {/* Неконтрольовані елементи форми */}
-      <LoginFormUncontrolled
-        onSubmit={values =>
-          console.log('🚀 ~ App - LoginFormUncontrolled ~ values:', values)
-        }
-      />
-
-      <hr />
-      <hr />
-
-      {/* Контрольовані елементи форми */}
-      <LoginFormControlled />
-
-      <hr />
-      <hr />
-
-      {/* Складні форми. Форма реєстрації */}
-      <SignUpForm
-        onSubmit={values =>
-          console.log('🚀 ~ App - SignUpForm ~ values:', values)
-        }
-      />
-
-      <hr />
-      <hr />
-
-      {/* Складні форми. Форма реєстрації. ComplicatedForm !!! */}
-      <ComplicatedForm
-        onSubmit={values =>
-          console.log('🚀 ~ App - SignUpForm ~ values:', values)
-        }
-      />
-
-      <hr />
-      <hr />
-
-      {/* Генерація Id елементів форми - nanoid, htmlFor, id */}
-      <FormIdGeneration />
-
-      <hr />
-      <hr />
-
-      {/* CheckBox */}
-      <CheckBox onSubmit={values => console.log(values)} />
-
-      <hr />
-      <hr />
-
-      {/* RadioButtons */}
-      <RadioButtons onSubmit={values => console.log(values)} />
-
-      <hr />
-      <hr />
-
-      {/* Select */}
-      <Select onSubmit={values => console.log(values)} />
     </>
   );
 };

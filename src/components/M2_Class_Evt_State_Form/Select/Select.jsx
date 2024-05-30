@@ -50,7 +50,7 @@ export default class Select extends Component {
 
     return (
       <>
-        <p>Select:</p>
+        <h3>Select:</h3>
 
         <form onSubmit={this.handleSubmit}>
           <section>
@@ -94,9 +94,10 @@ export default class Select extends Component {
               />
             </label>
           </section>
+          <br />
 
           <section>
-            <h2>Choose your gender</h2>
+            <h4>Choose your gender</h4>
             <label>
               Male
               <input
@@ -118,6 +119,7 @@ export default class Select extends Component {
               />
             </label>
           </section>
+          <br />
 
           <section>
             <label>

@@ -9,7 +9,7 @@ export default class FormIdGeneration extends Component {
   render() {
     return (
       <>
-        <p>nanoid - FormIdGeneration:</p>
+        <h3>nanoid - FormIdGeneration:</h3>
         <form
           onSubmit={e => {
             e.preventDefault();

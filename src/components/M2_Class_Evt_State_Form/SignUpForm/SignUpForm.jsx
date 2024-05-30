@@ -24,7 +24,7 @@ export default class SignUpForm extends Component {
 
     return (
       <>
-        <p>Складні форми. Форма реєстрації:</p>
+        <h3>Складні форми. Форма реєстрації:</h3>
         <form onSubmit={this.handleSubmit}>
           <label>
             Name
