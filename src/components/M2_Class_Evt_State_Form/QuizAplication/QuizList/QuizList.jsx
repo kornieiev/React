@@ -1,14 +1,15 @@
 import React from 'react';
 import QuizCard from '../QuizCard/QuizCard';
+import { ItemWrapperLi, ListWrapperUl } from './QuizList.styled';
 
 export default function QuizList({ items }) {
   return (
-    <ul>
+    <ListWrapperUl>
       {items.map(item => (
-        <li key={item.id}>
+        <ItemWrapperLi key={item.id} $level={item.level}>
           <QuizCard quiz={item} />
-        </li>
+        </ItemWrapperLi>
       ))}
-    </ul>
+    </ListWrapperUl>
   );
 }
