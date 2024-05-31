@@ -37,6 +37,7 @@ export default class Counter extends Component {
     return (
       <div>
         <h3>Состояние + Подъем состояния. CounterParent:</h3>
+        <p>"Counter"</p>
 
         <span>{this.state.value}</span>
         <button type="button" onClick={this.handleIncrement}>

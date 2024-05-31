@@ -46,6 +46,7 @@ export default class CheckBox extends Component {
     return (
       <>
         <h3>Чекбокс:</h3>
+        <p>"CheckBox"</p>
         <form onSubmit={this.handleSubmit}>
           <section>
             <label>

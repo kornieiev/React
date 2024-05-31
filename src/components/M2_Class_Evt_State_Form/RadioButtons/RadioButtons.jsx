@@ -51,6 +51,7 @@ export default class RadioButtons extends Component {
     return (
       <>
         <h3>Радіокнопки:</h3>
+        <p>"RadioButtons"</p>
         <form onSubmit={this.handleSubmit}>
           <section>
             <label>

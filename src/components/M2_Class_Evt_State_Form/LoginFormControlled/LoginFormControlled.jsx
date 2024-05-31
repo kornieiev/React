@@ -15,6 +15,7 @@ export default class LoginFormControlled extends Component {
     return (
       <>
         <h3>Контрольовані елементи форми:</h3>
+        <p>"LoginFormControlled"</p>
         <input type="text" value={inputValue} onChange={this.handleChange} />
       </>
     );

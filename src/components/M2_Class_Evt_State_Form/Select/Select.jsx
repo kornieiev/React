@@ -51,6 +51,7 @@ export default class Select extends Component {
     return (
       <>
         <h3>Select:</h3>
+        <p>"Select"</p>
 
         <form onSubmit={this.handleSubmit}>
           <section>

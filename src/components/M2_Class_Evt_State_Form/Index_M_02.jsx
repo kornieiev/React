@@ -17,9 +17,7 @@ export default class IndexM02 extends Component {
   render() {
     return (
       <>
-        <h2 style={{ color: 'red', backgroundColor: 'lightgreen' }}>
-          {this.props.children}
-        </h2>
+        <h2 style={this.props.styles}>{this.props.children}</h2>
         <hr />
         <hr />
 

@@ -15,6 +15,7 @@ export default class LoginFormUncontrolled extends Component {
     return (
       <>
         <h3>Неконтрольовані елементи форми:</h3>
+        <p>"LoginFormUncontrolled"</p>
         <form onSubmit={this.handleSubmit}>
           <input type="text" name="login" />
           <input type="password" name="password" />

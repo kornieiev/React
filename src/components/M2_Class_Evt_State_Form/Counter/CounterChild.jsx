@@ -10,6 +10,8 @@ export default class CounterChild extends Component {
           Передача состояния пропсом от родителя ребенку и подъем состояния
           родителю. CounterChild:
         </h3>
+        <p>"CounterChild"</p>
+
         <button type="button" onClick={onIncrementClick}>
           Increment by {step}
         </button>

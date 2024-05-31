@@ -41,6 +41,7 @@ export default class ComplicatedForm extends Component {
     return (
       <>
         <h3>Складні форми. Форма реєстрації. ComplicatedForm: !!!</h3>
+        <p>"ComplicatedForm"</p>
         <form onSubmit={this.handleSubmit}>
           <label>
             Name
