@@ -5,26 +5,39 @@ import QuizList from './QuizList/QuizList';
 
 import initialQuizItems from './quiz-items.json';
 
+const initialFilter = {
+  topic: '',
+  level: '',
+};
+
 export default class AppQuiz extends Component {
   state = {
     quizItems: initialQuizItems,
-    filters: {
-      topic: '',
-      level: '',
-    },
+    filters: initialFilter,
   };
 
   updateQuizeTopic = newTopic => {
-    console.log('newTopic', newTopic);
     this.setState(prevState => {
       return { filters: { ...prevState.filters, topic: newTopic } };
     });
   };
 
   updateQuizeLevel = newLevel => {
-    console.log('newLevel', newLevel);
     this.setState(prevState => {
       return { filters: { ...prevState.filters, level: newLevel } };
+    });
+  };
+  resetFilter = () => {
+    this.setState({
+      filters: initialFilter,
+    });
+  };
+
+  deleteQuiz = id => {
+    console.log('id', id);
+
+    this.setState(prevState => {
+      return { quizItems: prevState.quizItems.filter(item => item.id !== id) };
     });
   };
 
@@ -33,14 +46,16 @@ export default class AppQuiz extends Component {
       quizItems,
       filters: { topic, level },
     } = this.state;
-    console.log('quizItems', quizItems[0].topic);
 
     const visibleQuizItems = quizItems.filter(item => {
-      console.log('item', item);
-
-      return item.topic.toLowerCase().includes(topic.toLowerCase());
+      if (level === 'all') {
+        return item.topic.toLowerCase().includes(topic.toLowerCase());
+      }
+      return (
+        item.topic.toLowerCase().includes(topic.toLowerCase()) &&
+        item.level.toLowerCase().includes(level.toLowerCase())
+      );
     });
-    console.log('visibleQuizItems', visibleQuizItems);
 
     return (
       <div>
@@ -49,11 +64,12 @@ export default class AppQuiz extends Component {
           filters={this.state.filters}
           updateQuizeTopic={this.updateQuizeTopic}
           updateQuizeLevel={this.updateQuizeLevel}
+          resetFilter={this.resetFilter}
         />
-        {quizItems.length > 0 && <QuizList items={visibleQuizItems} />}
+        {quizItems.length > 0 && (
+          <QuizList items={visibleQuizItems} onDelete={this.deleteQuiz} />
+        )}
       </div>
     );
   }
 }
-
-// https://youtu.be/iu1Is5W--2s?t=4400

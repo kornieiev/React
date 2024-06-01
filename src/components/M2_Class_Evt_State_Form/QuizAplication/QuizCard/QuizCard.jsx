@@ -2,6 +2,7 @@ import React from 'react';
 
 export default function QuizCard({
   quiz: { id, topic, level, time, questions },
+  onDelete,
 }) {
   return (
     <div>
@@ -20,7 +21,7 @@ export default function QuizCard({
           {questions}
         </p>
       </div>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from 'react';
+import ResetButton from './ResetButton';
 
 export default function SearchBar({
   filters: { topic, level },
   updateQuizeTopic,
   updateQuizeLevel,
+  resetFilter,
 }) {
   return (
     <div>
@@ -12,14 +14,12 @@ export default function SearchBar({
         value={topic}
         placeholder="Topic filter"
         onChange={e => {
-          console.log('e:', e.target.value);
           updateQuizeTopic(e.target.value);
         }}
       />
       <select
-        value={topic}
+        value={level}
         onChange={e => {
-          console.log('e:', e.target.value);
           updateQuizeLevel(e.target.value);
         }}
       >
@@ -28,6 +28,7 @@ export default function SearchBar({
         <option value="intermediate">Intermediate</option>
         <option value="advanced">Advanced</option>
       </select>
+      <ResetButton resetFilter={resetFilter} />
     </div>
   );
 }
