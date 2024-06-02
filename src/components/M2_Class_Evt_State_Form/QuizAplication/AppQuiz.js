@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import QuizForm from './QuizForm';
+import QuizForm from './QuizForm/QuizForm';
 import SearchBar from './SearchBar';
 import QuizList from './QuizList/QuizList';
+import { nanoid } from 'nanoid';
 
 import initialQuizItems from './quiz-items.json';
 
@@ -27,6 +28,7 @@ export default class AppQuiz extends Component {
       return { filters: { ...prevState.filters, level: newLevel } };
     });
   };
+
   resetFilter = () => {
     this.setState({
       filters: initialFilter,
@@ -34,10 +36,20 @@ export default class AppQuiz extends Component {
   };
 
   deleteQuiz = id => {
-    console.log('id', id);
+    // console.log('id', id);
 
     this.setState(prevState => {
       return { quizItems: prevState.quizItems.filter(item => item.id !== id) };
+    });
+  };
+
+  addNewQuiz = newQuiz => {
+    console.log('newQuiz:', newQuiz);
+    const quiz = { id: nanoid(), ...newQuiz };
+    this.setState(prevState => {
+      return {
+        quizItems: [...prevState.quizItems, quiz],
+      };
     });
   };
 
@@ -59,7 +71,7 @@ export default class AppQuiz extends Component {
 
     return (
       <div>
-        <QuizForm />
+        <QuizForm select={this.state.quizItems} onAdd={this.addNewQuiz} />
         <SearchBar
           filters={this.state.filters}
           updateQuizeTopic={this.updateQuizeTopic}
