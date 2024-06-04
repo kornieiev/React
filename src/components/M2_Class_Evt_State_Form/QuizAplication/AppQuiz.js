@@ -11,11 +11,35 @@ const initialFilter = {
   level: '',
 };
 
+const lsKey = 'filters';
+
 export default class AppQuiz extends Component {
   state = {
     quizItems: initialQuizItems,
     filters: initialFilter,
   };
+
+  componentDidMount() {
+    const savedFilters = JSON.parse(localStorage.getItem(lsKey));
+    console.log('savedFilters', savedFilters);
+    if (!savedFilters) {
+      this.setState(() => {
+        return { filters: { ...initialFilter } };
+      });
+    }
+
+    if (savedFilters !== this.state.filters) {
+      this.setState(() => {
+        return { filters: { ...savedFilters } };
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state !== prevState) {
+      localStorage.setItem(lsKey, JSON.stringify(this.state.filters));
+    }
+  }
 
   updateQuizeTopic = newTopic => {
     this.setState(prevState => {
