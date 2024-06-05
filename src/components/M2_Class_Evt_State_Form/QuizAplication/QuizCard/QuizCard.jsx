@@ -21,7 +21,7 @@ export default class QuizCard extends Component {
     isModalOpen: false,
   };
 
-  openModal = () => {
+  openModal = e => {
     this.setState({ isModalOpen: true });
   };
 
@@ -32,16 +32,24 @@ export default class QuizCard extends Component {
     });
   };
 
+  handleDelete = id => {
+    this.props.onDelete(id);
+  };
+
   render() {
     const { isModalOpen } = this.state;
 
     const {
       quiz: { id, topic, level, time, questions },
-      onDelete,
     } = this.props;
 
     return (
-      <div onClick={this.openModal}>
+      <div
+        onClick={e => {
+          console.log('Клик по диву');
+          this.openModal();
+        }}
+      >
         <p>{topic}</p>
         <div>
           <p>
@@ -57,7 +65,15 @@ export default class QuizCard extends Component {
             {questions}
           </p>
         </div>
-        <button onClick={() => onDelete(id)}>Delete</button>
+        <button
+          onClick={e => {
+            e.stopPropagation();
+            this.handleDelete(id);
+            console.log('Клик по кнопке c id=', id);
+          }}
+        >
+          Delete
+        </button>
         {/* {isModalOpen && <h1>Modal!!! {topic}</h1>} */}
 
         {/* замість рендеру за умовою краще використати React Modal: */}

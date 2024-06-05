@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import QuizForm from './QuizForm/QuizForm';
 import SearchBar from './SearchBar';
 import QuizList from './QuizList/QuizList';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
+import ClipLoader from 'react-spinners/ClipLoader';
+import toast, { Toaster } from 'react-hot-toast';
 
-import initialQuizItems from './quiz-items.json';
+import api from './services/api';
+
+const override = {
+  display: 'block',
+  margin: '0 auto',
+  borderColor: 'red',
+};
+
+// import initialQuizItems from './quiz-items.json';
 
 const initialFilter = {
   topic: '',
@@ -15,23 +25,28 @@ const lsKey = 'filters';
 
 export default class AppQuiz extends Component {
   state = {
-    quizItems: initialQuizItems,
+    quizItems: [],
     filters: initialFilter,
+    isLoading: false,
+    isError: false,
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const savedFilters = JSON.parse(localStorage.getItem(lsKey));
-    console.log('savedFilters', savedFilters);
-    if (!savedFilters) {
-      this.setState(() => {
-        return { filters: { ...initialFilter } };
-      });
+    if (savedFilters) {
+      this.setState({ filters: savedFilters });
     }
 
-    if (savedFilters !== this.state.filters) {
-      this.setState(() => {
-        return { filters: { ...savedFilters } };
-      });
+    try {
+      this.setState({ isError: false });
+      this.setState({ isLoading: true });
+      const allQuizzes = await api.getAllQuizzes();
+      this.setState({ quizItems: allQuizzes });
+    } catch (error) {
+      console.log(`%c${error.message}`, 'color: red;');
+      this.setState({ isError: true });
+    } finally {
+      this.setState({ isLoading: false });
     }
   }
 
@@ -59,28 +74,48 @@ export default class AppQuiz extends Component {
     });
   };
 
-  deleteQuiz = id => {
-    // console.log('id', id);
-
-    this.setState(prevState => {
-      return { quizItems: prevState.quizItems.filter(item => item.id !== id) };
-    });
+  addNewQuiz = async newQuiz => {
+    try {
+      this.setState({ isError: false });
+      this.setState({ isLoading: true });
+      const addedQuiz = await api.addNewQuiz(newQuiz);
+      this.setState(prevState => {
+        return { quizItems: [...prevState.quizItems, addedQuiz] };
+      });
+    } catch (error) {
+      console.log(`%c${error.message}`, 'color: red;');
+      this.setState({ isError: true });
+      toast.error("This didn't work.");
+    } finally {
+      this.setState({ isLoading: false });
+    }
   };
 
-  addNewQuiz = newQuiz => {
-    console.log('newQuiz:', newQuiz);
-    const quiz = { id: nanoid(), ...newQuiz };
-    this.setState(prevState => {
-      return {
-        quizItems: [...prevState.quizItems, quiz],
-      };
-    });
+  deleteQuiz = async id => {
+    try {
+      this.setState({ isError: false });
+      this.setState({ isLoading: true });
+      const deletedQuiz = await api.deleteQuizById(id);
+
+      this.setState(prevState => {
+        return {
+          quizItems: prevState.quizItems.filter(item => item.id !== id),
+        };
+      });
+    } catch (error) {
+      console.log(`%c${error.message}`, 'color: red;');
+      this.setState({ isError: true });
+    } finally {
+      this.setState({ isLoading: false });
+    }
   };
 
   render() {
     const {
       quizItems,
       filters: { topic, level },
+      isLoading,
+      isError,
     } = this.state;
 
     const visibleQuizItems = quizItems.filter(item => {
@@ -88,8 +123,8 @@ export default class AppQuiz extends Component {
         return item.topic.toLowerCase().includes(topic.toLowerCase());
       }
       return (
-        item.topic.toLowerCase().includes(topic.toLowerCase()) &&
-        item.level.toLowerCase().includes(level.toLowerCase())
+        item?.topic?.toLowerCase().includes(topic.toLowerCase()) &&
+        item?.level?.toLowerCase().includes(level.toLowerCase())
       );
     });
 
@@ -102,6 +137,18 @@ export default class AppQuiz extends Component {
           updateQuizeLevel={this.updateQuizeLevel}
           resetFilter={this.resetFilter}
         />
+        {isError && <h3>SOS!!! ERROR!!! RESTART THE PAGE!!!</h3>}
+        <Toaster />
+        {isLoading && (
+          <ClipLoader
+            // color={color}
+            loading={isLoading}
+            cssOverride={override}
+            size={150}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        )}
         {quizItems.length > 0 && (
           <QuizList items={visibleQuizItems} onDelete={this.deleteQuiz} />
         )}

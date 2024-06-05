@@ -4,7 +4,7 @@ import { List } from 'react-content-loader';
 import React, { Component } from 'react';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://hn.algolia.com/api/v1';
+// axios.defaults.baseURL = 'https://hn.algolia.com/api/v1';
 
 const ArticleList = ({ articles }) => (
   <ul>

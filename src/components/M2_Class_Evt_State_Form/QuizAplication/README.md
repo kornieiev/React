@@ -1,3 +1,5 @@
-https://mockapi.io/
+<!-- https://mockapi.io/
 
-Login: mail.kornieiev@meta.ua
+Login: mail.kornieiev@meta.ua -->
+<!--  -->
+<!--  -->
