@@ -4,6 +4,7 @@ import { GlobalStyle } from './GlobalStyles';
 import IndexM01 from 'components/M1_Components_Collections_Styles/index_M_01';
 import AppQuiz from 'components/M2_Class_Evt_State_Form/QuizAplication/AppQuiz';
 import Index_M_03 from 'components/M3-1-Lifecycle_Methods/Index_M_03';
+import Index_M_04 from 'components/M4-Hooks/Index_M_04';
 
 const headerStyles = { color: 'red', backgroundColor: 'lightgreen' };
 
@@ -27,12 +28,15 @@ export const App = () => {
       {/* <hr /> */}
       {/*  */}
       {/* M-02-03 AppQuiz - Події та стан - класові і функціональні компоненти. Передача пропсів дітям, підйом стейту батькам, ReactModal, Formik, Yup, життєвий цикл компонента */}
-      <AppQuiz />
+      {/* <AppQuiz /> */}
       {/*  */}
       {/* <hr /> */}
       {/* <hr /> */}
       {/* M-03-Axios */}
       {/* <Index_M_03 /> */}
+      {/* <hr /> */}
+      {/* <hr /> */}
+      <Index_M_04 />
     </>
   );
 };
