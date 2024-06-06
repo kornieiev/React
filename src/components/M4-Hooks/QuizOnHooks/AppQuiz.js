@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import QuizForm from './QuizForm/QuizForm';
 import SearchBar from './SearchBar';
 import QuizList from './QuizList/QuizList';
@@ -20,7 +20,7 @@ const initialFilter = {
 
 const lsKey = 'filters';
 
-export default function AppQuiz() {
+export default function AppQuizOnHooks() {
   const [quizItems, setQuizItems] = useState([]);
   const [filters, setFilters] = useState(() => {
     const savedFilters = window.localStorage.getItem(lsKey);
@@ -103,15 +103,17 @@ export default function AppQuiz() {
     }
   };
 
-  const visibleQuizItems = quizItems.filter(item => {
-    if (filters.level === 'all') {
-      return item.topic.toLowerCase().includes(filters.topic.toLowerCase());
-    }
-    return (
-      item?.topic?.toLowerCase().includes(filters.topic.toLowerCase()) &&
-      item?.level?.toLowerCase().includes(filters.level.toLowerCase())
-    );
-  });
+  const visibleQuizItems = useMemo(() => {
+    return quizItems.filter(item => {
+      if (filters.level === 'all') {
+        return item.topic.toLowerCase().includes(filters.topic.toLowerCase());
+      }
+      return (
+        item?.topic?.toLowerCase().includes(filters.topic.toLowerCase()) &&
+        item?.level?.toLowerCase().includes(filters.level.toLowerCase())
+      );
+    });
+  }, [filters.level, filters.topic, quizItems]);
 
   return (
     <div>
